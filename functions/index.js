@@ -3,23 +3,26 @@ const admin = require("firebase-admin");
 
 admin.initializeApp();
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-exports.helloWorld = functions.https.onRequest((request, response) => {
-  response.send("Hello world!");
-});
+const experss = require("express");
+const app = experss();
 
 // getting posts from firebase collection
-exports.getPosts = functions.https.onRequest((req, res) => {
+app.get("/posts", (req, res) => {
   admin
     .firestore()
     .collection("posts")
+    .orderBy("createdAt", "desc")
     .get()
     .then(data => {
       let posts = [];
       data.forEach(doc => {
-        posts.push(doc.data());
+        posts.push({
+          postId: doc.id,
+          body: doc.data().body,
+          userHandle: doc.data().userHandle,
+          title: doc.data().title,
+          createdAt: doc.data().createdAt
+        });
       });
       return res.json(posts);
     })
@@ -27,15 +30,12 @@ exports.getPosts = functions.https.onRequest((req, res) => {
 });
 
 // creating posts in firebase collection
-exports.createPost = functions.https.onRequest((req, res) => {
-  if (req.method !== "POST") {
-    return res.status(400).json({ error: "Method not allowed" });
-  }
+app.post("/post", (req, res) => {
   const newPost = {
     body: req.body.body,
     userHandle: req.body.userHandle,
     title: req.body.title,
-    createdAt: admin.firestore.Timestamp.fromDate(new Date())
+    createdAt: new Date().toISOString()
   };
 
   admin
@@ -50,3 +50,7 @@ exports.createPost = functions.https.onRequest((req, res) => {
       console.log(err);
     });
 });
+
+// https://baseurl.com/api/
+
+exports.api = functions.region("europe-west1").https.onRequest(app);
