@@ -5,6 +5,7 @@ const config = require("../util/config");
 const firebase = require("firebase");
 firebase.initializeApp(config);
 
+// sign users up
 exports.signup = (req, res) => {
   const newUser = {
     first_name: req.body.first_name,
@@ -38,7 +39,13 @@ exports.signup = (req, res) => {
     });
 };
 
-// validating helper functions
+// add user details
+// exports.addUserDetails = (req, res) => {
+//   let userDetails = reduceUserDetails(req.body);
+
+// };
+
+// validating & helper functions
 
 const isEmpty = string => {
   if (string.trim() === "") return true;
@@ -50,3 +57,12 @@ const isEmail = email => {
   if (email.match(emailRegEx)) return true;
   else return false;
 };
+
+// const reduceUserDetails = data => {
+//   let userDetails = {};
+
+//   if (!isEmpty(data.phone.trim())) userDetails.bio = data.bio;
+//   if (!isEmpty(data.address.trim())) userDetails.address = data.address;
+
+//   return userDetails;
+// };

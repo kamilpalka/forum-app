@@ -14,6 +14,7 @@ app.post("/post", postOnePost);
 // users route
 // creating users in firebase collection
 app.post("/signup", signup);
+// app.post('/user', addUserDetails)
 
 // https://baseurl.com/api/
 exports.api = functions.region("europe-west1").https.onRequest(app);
