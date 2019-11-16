@@ -2,14 +2,23 @@ const functions = require("firebase-functions");
 
 const app = require("express")();
 
-const { getAllPosts, postOnePost } = require("./handlers/posts");
+const {
+  getAllPosts,
+  postOnePost,
+  getPost,
+  commentOnPost
+} = require("./handlers/posts");
 const { signup } = require("./handlers/users");
 
 // posts routes
-// getting posts from firebase collection
+// get posts from firebase collection
 app.get("/posts", getAllPosts);
 // creating posts in firebase collection
 app.post("/post", postOnePost);
+// get comments on posts by id
+app.get("/post/:postId", getPost);
+// post comments on posts
+app.post("/post/:postId/comment", commentOnPost);
 
 // users route
 // creating users in firebase collection
