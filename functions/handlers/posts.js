@@ -1,5 +1,6 @@
 const { db } = require("../util/admin");
 
+// get all posts from posts collection
 exports.getAllPosts = (req, res) => {
   db.collection("posts")
     .orderBy("createdAt", "desc")
@@ -23,18 +24,23 @@ exports.getAllPosts = (req, res) => {
     });
 };
 
+// post one post and insert it into posts collection
 exports.postOnePost = (req, res) => {
   const newPost = {
     body: req.body.body,
     userHandle: req.body.userHandle,
     title: req.body.title,
-    createdAt: new Date().toISOString()
+    createdAt: new Date().toISOString(),
+    commentCount: 0
   };
 
   db.collection("posts")
     .add(newPost)
     .then(doc => {
-      res.json({ message: `document ${doc.id} created successfully` });
+      const resPost = newPost;
+      resPost.postId = doc.id;
+      res.json(resPost);
+      // res.json({ message: `document ${doc.id} created successfully` });
     })
     .catch(err => {
       res.status(500).json({ error: "something went wrong" });
@@ -42,6 +48,7 @@ exports.postOnePost = (req, res) => {
     });
 };
 
+// get comments of id post
 exports.getPost = (req, res) => {
   let postData = {};
   db.doc(`/posts/${req.params.postId}`)
@@ -71,6 +78,7 @@ exports.getPost = (req, res) => {
     });
 };
 
+// add comment to chosen post
 exports.commentOnPost = (req, res) => {
   if (req.body.body.trim() === "")
     return res.status(400).json({ error: "Cannot be empty" });
@@ -91,6 +99,9 @@ exports.commentOnPost = (req, res) => {
       if (!doc.exists) {
         return res.status(404).json({ error: "Post not found" });
       }
+      return doc.ref.update({ commentCount: doc.data().commentCount + 1 });
+    })
+    .then(() => {
       return db.collection("comments").add(newComment);
     })
     .then(() => {
@@ -99,5 +110,26 @@ exports.commentOnPost = (req, res) => {
     .catch(err => {
       console.log(err);
       res.status(500).json({ error: "Something went wrong" });
+    });
+};
+
+// delete posts
+exports.deletePost = (req, res) => {
+  const document = db.doc(`/posts/${req.params.postId}`);
+  document
+    .get()
+    .then(doc => {
+      if (!doc.exists) {
+        return res.status(404).json({ error: "Post not found" });
+      } else {
+        return document.delete();
+      }
+    })
+    .then(() => {
+      res.json({ message: "Post deleted successfully" });
+    })
+    .catch(err => {
+      console.error(err);
+      return res.status(500).json({ error: err.code });
     });
 };

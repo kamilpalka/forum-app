@@ -6,7 +6,8 @@ const {
   getAllPosts,
   postOnePost,
   getPost,
-  commentOnPost
+  commentOnPost,
+  deletePost
 } = require("./handlers/posts");
 const { signup } = require("./handlers/users");
 
@@ -19,6 +20,8 @@ app.post("/post", postOnePost);
 app.get("/post/:postId", getPost);
 // post comments on posts
 app.post("/post/:postId/comment", commentOnPost);
+// delete post
+app.delete("/post/:postId", deletePost);
 
 // users route
 // creating users in firebase collection
