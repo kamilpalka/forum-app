@@ -64,11 +64,25 @@ exports.getUserDetails = (req, res) => {
     });
 };
 
-// add user details
-// exports.addUserDetails = (req, res) => {
-//   let userDetails = reduceUserDetails(req.body);
-
-// };
+exports.deleteUser = (req, res) => {
+  const document = db.doc(`/users/${req.params.userId}`);
+  document
+    .get()
+    .then(doc => {
+      if (!doc.exists) {
+        return res.status(404).json({ error: "User not found" });
+      } else {
+        return document.delete();
+      }
+    })
+    .then(() => {
+      res.json({ message: "User deleted successfully" });
+    })
+    .catch(err => {
+      console.error(err);
+      return res.status(500).json({ error: err.code });
+    });
+};
 
 // validating & helper functions
 
@@ -82,12 +96,3 @@ const isEmail = email => {
   if (email.match(emailRegEx)) return true;
   else return false;
 };
-
-// const reduceUserDetails = data => {
-//   let userDetails = {};
-
-//   if (!isEmpty(data.phone.trim())) userDetails.bio = data.bio;
-//   if (!isEmpty(data.address.trim())) userDetails.address = data.address;
-
-//   return userDetails;
-// };

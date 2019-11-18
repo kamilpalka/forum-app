@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import home from "./pages/home";
 import users from "./pages/users";
 import createUser from "./pages/createUser";
+import addPost from "./pages/addPost";
 
 const theme = createMuiTheme({
   palette: {
@@ -22,7 +23,7 @@ const theme = createMuiTheme({
     },
     secondary: {
       light: "#ff6333",
-      main: "#ff3d00",
+      main: "#0062ff",
       dark: "#b22a00",
       contrastText: "#fff"
     }
@@ -39,8 +40,9 @@ class App extends Component {
             <div className="container">
               <Switch>
                 <Route exact path="/" component={home} />
-                <Route exact path="/users" component={users} />
-                <Route exact path="/create" component={createUser} />
+                <Route path="/users" component={users} />
+                <Route path="/create" component={createUser} />
+                <Route path="/posts" component={addPost} />
               </Switch>
             </div>
           </Router>

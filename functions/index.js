@@ -9,12 +9,12 @@ const {
   commentOnPost,
   deletePost
 } = require("./handlers/posts");
-const { signup, getUserDetails } = require("./handlers/users");
+const { signup, getUserDetails, deleteUser } = require("./handlers/users");
 
 // posts routes
 // get posts from firebase collection
 app.get("/posts", getAllPosts);
-// creating posts in firebase collection
+// creating post by user in firebase collection
 app.post("/post", postOnePost);
 // get comments on posts by id
 app.get("/post/:postId", getPost);
@@ -27,6 +27,7 @@ app.delete("/post/:postId", deletePost);
 // creating users in firebase collection
 app.post("/signup", signup);
 app.get("/user", getUserDetails);
+app.delete("/user/:userId", deleteUser);
 // app.post('/user', addUserDetails)
 
 // https://baseurl.com/api/

@@ -15,7 +15,7 @@ const styles = {
     textAlign: "center"
   },
   textArea: {
-    minWidth: 400,
+    minWidth: 300,
     margin: "30px auto 30px auto"
   },
   pageTitle: {
@@ -25,7 +25,7 @@ const styles = {
     margin: "10px auto 10px auto"
   },
   button: {
-    marginTop: "20px",
+    marginTop: "10px",
     position: "relative"
   },
   progress: {
@@ -33,15 +33,12 @@ const styles = {
   }
 };
 
-class createUser extends Component {
+class addPost extends Component {
   constructor() {
     super();
     this.state = {
-      first_name: "",
-      last_name: "",
-      email: "",
-      phone: "",
-      address: "",
+      title: "",
+      body: "",
       loading: false,
       errors: {}
     };
@@ -52,24 +49,21 @@ class createUser extends Component {
     this.setState({
       loading: true
     });
-    const userData = {
-      first_name: this.state.first_name,
-      last_name: this.state.last_name,
-      email: this.state.email,
-      phone: this.state.phone,
-      address: this.state.address
+    const postData = {
+      title: this.state.title,
+      body: this.state.body
     };
     axios
-      .post("/signup", userData)
+      .post("/post", postData)
       .then(res => {
         console.log(res.data);
         this.setState({
           loading: false
         });
-        this.props.history.push("/users");
+        this.props.history.push("/");
       })
       .catch(err => {
-        // console.log(err);
+        console.log(err);
         this.setState({
           errors: err.response.data,
           loading: false
@@ -91,67 +85,35 @@ class createUser extends Component {
         <Grid item sm />
         <Grid item sm>
           <Typography variant="h4" className={classes.pageTitle}>
-            Create User
+            Create Post
           </Typography>
           <form noValidate onSubmit={this.handleSubmit}>
             <TextField
-              id="first_name"
-              name="first_name"
-              type="first_name"
-              label="First Name"
+              id="title"
+              name="title"
+              label="Title"
               className={classes.textField}
-              helperText={errors.first_name}
-              error={errors.first_name ? true : false}
-              value={this.state.first_name}
+              helperText={errors.title}
+              error={errors.title ? true : false}
+              value={this.state.title}
               onChange={this.handleChange}
               fullWidth
             />
             <TextField
-              id="last_name"
-              name="last_name"
-              type="last_name"
-              label="Last Name"
-              className={classes.textField}
-              helperText={errors.last_name}
-              error={errors.last_name ? true : false}
-              value={this.state.last_name}
-              onChange={this.handleChange}
-              fullWidth
-            />
-            <TextField
-              id="email"
-              name="email"
-              type="email"
-              label="Email"
-              className={classes.textField}
-              helperText={errors.email}
-              error={errors.email ? true : false}
-              value={this.state.email}
-              onChange={this.handleChange}
-              fullWidth
-            />
-            <TextField
-              id="phone"
-              name="phone"
-              type="phone"
-              label="Mobile Number"
-              className={classes.textField}
-              value={this.state.phone}
-              onChange={this.handleChange}
-              fullWidth
-            />
-            <TextField
-              id="address"
-              name="address"
-              label="Address"
+              id="body"
+              name="body"
+              label="Body"
               multiline
               rows="4"
+              helperText={errors.body}
+              error={errors.body ? true : false}
+              value={this.state.body}
               className={classes.textArea}
+              onChange={this.handleChange}
               margin="normal"
               variant="outlined"
-              value={this.state.address}
-              onChange={this.handleChange}
             />
+            <br />
             <Button
               type="submit"
               variant="contained"
@@ -159,7 +121,7 @@ class createUser extends Component {
               className={classes.button}
               disabled={loading}
             >
-              Create
+              submit
               {loading && (
                 <CircularProgress size={30} className={classes.progress} />
               )}
@@ -172,8 +134,8 @@ class createUser extends Component {
   }
 }
 
-createUser.propTypes = {
+addPost.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(createUser);
+export default withStyles(styles)(addPost);

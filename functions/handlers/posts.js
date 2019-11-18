@@ -13,7 +13,8 @@ exports.getAllPosts = (req, res) => {
           body: doc.data().body,
           userHandle: doc.data().userHandle,
           title: doc.data().title,
-          createdAt: doc.data().createdAt
+          createdAt: doc.data().createdAt,
+          commentCount: doc.data().commentCount
         });
       });
       return res.json(posts);
@@ -21,30 +22,6 @@ exports.getAllPosts = (req, res) => {
     .catch(err => {
       console.error(err);
       res.status(500).json({ error: err.code });
-    });
-};
-
-// post one post and insert it into posts collection
-exports.postOnePost = (req, res) => {
-  const newPost = {
-    body: req.body.body,
-    userHandle: req.body.userHandle,
-    title: req.body.title,
-    createdAt: new Date().toISOString(),
-    commentCount: 0
-  };
-
-  db.collection("posts")
-    .add(newPost)
-    .then(doc => {
-      const resPost = newPost;
-      resPost.postId = doc.id;
-      res.json(resPost);
-      // res.json({ message: `document ${doc.id} created successfully` });
-    })
-    .catch(err => {
-      res.status(500).json({ error: "something went wrong" });
-      console.log(err);
     });
 };
 
@@ -75,6 +52,36 @@ exports.getPost = (req, res) => {
     .catch(err => {
       console.error(err);
       res.status(500).json({ error: err.code });
+    });
+};
+
+// post one post and insert it into posts collection
+exports.postOnePost = (req, res) => {
+  const newPost = {
+    body: req.body.body,
+    title: req.body.title,
+    createdAt: new Date().toISOString(),
+    commentCount: 0
+  };
+
+  let errors = {};
+
+  if (req.body.body.trim() === "") errors.body = "Cannot be empty";
+  if (req.body.title.trim() === "") errors.title = "Cannot be empty";
+
+  if (Object.keys(errors).length > 0) return res.status(400).json(errors);
+
+  db.collection("posts")
+    .add(newPost)
+    .then(doc => {
+      // const resPost = newPost;
+      // resPost.postId = doc.id;
+      // res.json(resPost);
+      res.json({ message: `document ${doc.id} created successfully` });
+    })
+    .catch(err => {
+      res.status(500).json({ error: "something went wrong" });
+      console.log(err);
     });
 };
 

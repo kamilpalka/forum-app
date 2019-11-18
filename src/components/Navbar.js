@@ -20,6 +20,9 @@ export class Navbar extends Component {
           <Button color="inherit" component={Link} to="/">
             Posts
           </Button>
+          <Button color="inherit" component={Link} to="/posts">
+            Add Posts
+          </Button>
         </Toolbar>
       </AppBar>
     );

@@ -1,0 +1,207 @@
+[debug] [2019-11-18T12:59:55.118Z] ----------------------------------------------------------------------
+[debug] [2019-11-18T12:59:55.120Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Cabe\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-11-18T12:59:55.120Z] CLI Version:   6.8.0
+[debug] [2019-11-18T12:59:55.120Z] Platform:      win32
+[debug] [2019-11-18T12:59:55.120Z] Node Version:  v10.15.3
+[debug] [2019-11-18T12:59:55.122Z] Time:          Mon Nov 18 2019 13:59:55 GMT+0100 (GMT+01:00)
+[debug] [2019-11-18T12:59:55.122Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-11-18T12:59:55.134Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-18T12:59:55.134Z] > authorizing via signed-in user
+[debug] [2019-11-18T12:59:55.134Z] [iam] checking project forum-app-cf14b for permissions ["firebase.projects.get"]
+[debug] [2019-11-18T12:59:55.136Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-11-18T12:59:55.136Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-11-18T12:59:55.372Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T12:59:55.390Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/forum-app-cf14b:testIamPermissions  
+
+[debug] [2019-11-18T12:59:55.670Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T12:59:55.671Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/forum-app-cf14b  
+ 
+[debug] [2019-11-18T12:59:55.895Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'E:\ForumApp\forum-app'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2019-11-18T12:59:56.701Z] Fetching environment
+[debug] [2019-11-18T12:59:56.703Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/322672924009:getServerAppConfig  
+ 
+[debug] [2019-11-18T12:59:57.012Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T12:59:57.013Z] Starting @google-cloud/functions-emulator
+[debug] [2019-11-18T12:59:58.567Z] Parsing function triggers
+[info] +  functions: api: http://localhost:5000/forum-app-cf14b/us-central1/api
+[debug] [2019-11-18T14:49:37.643Z] ----------------------------------------------------------------------
+[debug] [2019-11-18T14:49:37.645Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Cabe\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-11-18T14:49:37.645Z] CLI Version:   6.8.0
+[debug] [2019-11-18T14:49:37.645Z] Platform:      win32
+[debug] [2019-11-18T14:49:37.645Z] Node Version:  v10.15.3
+[debug] [2019-11-18T14:49:37.646Z] Time:          Mon Nov 18 2019 15:49:37 GMT+0100 (GMT+01:00)
+[debug] [2019-11-18T14:49:37.646Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-11-18T14:49:37.658Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-18T14:49:37.658Z] > authorizing via signed-in user
+[debug] [2019-11-18T14:49:37.658Z] [iam] checking project forum-app-cf14b for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2019-11-18T14:49:37.660Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-11-18T14:49:37.660Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-11-18T14:49:37.851Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:49:37.870Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/forum-app-cf14b:testIamPermissions  
+
+[debug] [2019-11-18T14:49:38.737Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'forum-app-cf14b'...
+[info] 
+[info] i  deploying functions
+[debug] [2019-11-18T14:49:41.761Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "firebase": "^7.3.0",
+    "firebase-admin": "^8.6.0",
+    "firebase-functions": "^3.3.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.1.6"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2019-11-18T14:49:41.762Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/forum-app-cf14b?view=CONSUMER_VIEW  
+ 
+[debug] [2019-11-18T14:49:41.762Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/forum-app-cf14b?view=CONSUMER_VIEW  
+ 
+[debug] [2019-11-18T14:49:43.195Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:49:43.267Z] <<< HTTP RESPONSE 200
+[info] +  functions: all necessary APIs are enabled
+[debug] [2019-11-18T14:49:43.271Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/forum-app-cf14b  
+ 
+[debug] [2019-11-18T14:49:43.488Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:49:43.489Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/322672924009:getServerAppConfig  
+ 
+[debug] [2019-11-18T14:49:44.414Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2019-11-18T14:49:44.424Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/forum-app-cf14b/configs  
+ 
+[debug] [2019-11-18T14:49:44.798Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (34.86 KB) for uploading
+[debug] [2019-11-18T14:49:46.226Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/forum-app-cf14b/locations/us-central1/functions:generateUploadUrl  
+ 
+[debug] [2019-11-18T14:49:47.094Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:49:47.095Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-533d15c5-fc9c-40b7-837a-c788cf6ef9c8/4fffadba-70a8-401e-a473-efa9c4b849cb.zip?GoogleAccessId=service-322672924009@gcf-admin-robot.iam.gserviceaccount.com&Expires=1574090387&Signature=EL5VVp8aKNtCzNqQAblgx6wOA%2FiehUQhxGKIfA8sFQ%2FS7%2FJDpa5TjM0eG%2FyahfPBnjLp1xLOTqPwRzNhxITMLZ84pCEq5z507TkwkufGQQm1%2FRRjzHngvbtnD%2FfspwQhwGLI%2Be6%2FXQIJCKEhgQdj2iUAMi01QtU%2BAKyoa%2FiBxh41XgqBMOV%2FvddyY4T3dLF494mZsl0clHRY8IdHqQcAhkXgzRHT717qaGHFADEARLu8RvENwmIlSZMMhjqUK8el9qGMHLPcVSZMcrWCTT%2Beiv%2FYoUBo2VqtAZRJd9KpRCd11jMbq0DgY1kRTaU5jM%2F4uxThKZegDvDBK8nzTbaKow%3D%3D  
+
+[debug] [2019-11-18T14:49:47.585Z] <<< HTTP RESPONSE 200
+[info] +  functions: functions folder uploaded successfully
+[debug] [2019-11-18T14:49:47.593Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/forum-app-cf14b/locations/-/functions  
+ 
+[debug] [2019-11-18T14:49:48.033Z] <<< HTTP RESPONSE 200
+[info] i  functions: updating Node.js 8 function api(europe-west1)...
+[debug] [2019-11-18T14:49:48.042Z] Trigger is:  {"httpsTrigger":{}}
+[debug] [2019-11-18T14:49:48.047Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudscheduler.googleapis.com/projectSettings/forum-app-cf14b?view=CONSUMER_VIEW  
+ 
+[debug] [2019-11-18T14:49:49.513Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:49:49.516Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/forum-app-cf14b/locations/europe-west1/functions/api {"updateMask":"sourceUploadUrl,name,labels,runtime,httpsTrigger"} 
+
+[debug] [2019-11-18T14:49:49.834Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:49:49.840Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/forum-app-cf14b/locations/-/functions  
+ 
+[debug] [2019-11-18T14:49:50.266Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:49:50.266Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ydW0tYXBwLWNmMTRiL2V1cm9wZS13ZXN0MS9hcGkvaTdZYVhZLVRGOEk  
+ 
+[debug] [2019-11-18T14:49:50.410Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:49:52.413Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ydW0tYXBwLWNmMTRiL2V1cm9wZS13ZXN0MS9hcGkvaTdZYVhZLVRGOEk  
+ 
+[debug] [2019-11-18T14:49:52.569Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:49:54.571Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ydW0tYXBwLWNmMTRiL2V1cm9wZS13ZXN0MS9hcGkvaTdZYVhZLVRGOEk  
+ 
+[debug] [2019-11-18T14:49:54.720Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:49:56.721Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ydW0tYXBwLWNmMTRiL2V1cm9wZS13ZXN0MS9hcGkvaTdZYVhZLVRGOEk  
+ 
+[debug] [2019-11-18T14:49:56.879Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:49:58.879Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ydW0tYXBwLWNmMTRiL2V1cm9wZS13ZXN0MS9hcGkvaTdZYVhZLVRGOEk  
+ 
+[debug] [2019-11-18T14:49:59.035Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:50:01.036Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ydW0tYXBwLWNmMTRiL2V1cm9wZS13ZXN0MS9hcGkvaTdZYVhZLVRGOEk  
+ 
+[debug] [2019-11-18T14:50:01.186Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:50:03.186Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ydW0tYXBwLWNmMTRiL2V1cm9wZS13ZXN0MS9hcGkvaTdZYVhZLVRGOEk  
+ 
+[debug] [2019-11-18T14:50:03.331Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:50:05.332Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ydW0tYXBwLWNmMTRiL2V1cm9wZS13ZXN0MS9hcGkvaTdZYVhZLVRGOEk  
+ 
+[debug] [2019-11-18T14:50:05.490Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:50:07.491Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ydW0tYXBwLWNmMTRiL2V1cm9wZS13ZXN0MS9hcGkvaTdZYVhZLVRGOEk  
+ 
+[debug] [2019-11-18T14:50:07.628Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:50:09.629Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ydW0tYXBwLWNmMTRiL2V1cm9wZS13ZXN0MS9hcGkvaTdZYVhZLVRGOEk  
+ 
+[debug] [2019-11-18T14:50:09.777Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:50:11.778Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ydW0tYXBwLWNmMTRiL2V1cm9wZS13ZXN0MS9hcGkvaTdZYVhZLVRGOEk  
+ 
+[debug] [2019-11-18T14:50:11.919Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:50:13.920Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ydW0tYXBwLWNmMTRiL2V1cm9wZS13ZXN0MS9hcGkvaTdZYVhZLVRGOEk  
+ 
+[debug] [2019-11-18T14:50:14.072Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:50:16.074Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ydW0tYXBwLWNmMTRiL2V1cm9wZS13ZXN0MS9hcGkvaTdZYVhZLVRGOEk  
+ 
+[debug] [2019-11-18T14:50:16.233Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:50:18.234Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ydW0tYXBwLWNmMTRiL2V1cm9wZS13ZXN0MS9hcGkvaTdZYVhZLVRGOEk  
+ 
+[debug] [2019-11-18T14:50:18.372Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:50:20.373Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ydW0tYXBwLWNmMTRiL2V1cm9wZS13ZXN0MS9hcGkvaTdZYVhZLVRGOEk  
+ 
+[debug] [2019-11-18T14:50:20.496Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:50:22.496Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ydW0tYXBwLWNmMTRiL2V1cm9wZS13ZXN0MS9hcGkvaTdZYVhZLVRGOEk  
+ 
+[debug] [2019-11-18T14:50:22.668Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T14:50:24.668Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ydW0tYXBwLWNmMTRiL2V1cm9wZS13ZXN0MS9hcGkvaTdZYVhZLVRGOEk  
+ 
+[debug] [2019-11-18T14:50:24.853Z] <<< HTTP RESPONSE 200
+[info] +  functions[api(europe-west1)]: Successful update operation. 
+[info] 
+[info] +  Deploy complete!
+[info] 
+[info] Please note that it can take up to 30 seconds for your updated functions to propagate.
+[info] Project Console: https://console.firebase.google.com/project/forum-app-cf14b/overview
+[debug] [2019-11-18T19:44:10.327Z] ----------------------------------------------------------------------
+[debug] [2019-11-18T19:44:10.328Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Cabe\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-11-18T19:44:10.328Z] CLI Version:   6.8.0
+[debug] [2019-11-18T19:44:10.328Z] Platform:      win32
+[debug] [2019-11-18T19:44:10.328Z] Node Version:  v10.15.3
+[debug] [2019-11-18T19:44:10.329Z] Time:          Mon Nov 18 2019 20:44:10 GMT+0100 (GMT+01:00)
+[debug] [2019-11-18T19:44:10.329Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-11-18T19:44:10.340Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-18T19:44:10.341Z] > authorizing via signed-in user
+[debug] [2019-11-18T19:44:10.341Z] [iam] checking project forum-app-cf14b for permissions ["firebase.projects.get"]
+[debug] [2019-11-18T19:44:10.343Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-11-18T19:44:10.343Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-11-18T19:44:10.528Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T19:44:10.537Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/forum-app-cf14b:testIamPermissions  
+
+[debug] [2019-11-18T19:44:10.828Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T19:44:10.828Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/forum-app-cf14b  
+ 
+[debug] [2019-11-18T19:44:11.637Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'E:\ForumApp\forum-app'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2019-11-18T19:44:12.408Z] Fetching environment
+[debug] [2019-11-18T19:44:12.410Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/322672924009:getServerAppConfig  
+ 
+[debug] [2019-11-18T19:44:12.691Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-18T19:44:12.691Z] Starting @google-cloud/functions-emulator
+[debug] [2019-11-18T19:44:14.214Z] Parsing function triggers
+[info] +  functions: api: http://localhost:5000/forum-app-cf14b/us-central1/api
