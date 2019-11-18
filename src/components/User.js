@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
 
 // MUI
 import Card from "@material-ui/core/Card";
@@ -18,28 +16,25 @@ const styles = {
   }
 };
 
-export class Post extends Component {
+export class User extends Component {
   render() {
-    dayjs.extend(relativeTime);
     const {
       classes,
-      post: { body, title, createdAt, userHandle }
+      user: { first_name, last_name, email }
     } = this.props;
     return (
       <Card className={classes.card}>
         <CardContent className={classes.content}>
           <Typography variant="h5" color="primary">
-            {userHandle}
+            {first_name} {last_name}
           </Typography>
           <Typography variant="body2" color="textSecondary">
-            {dayjs(createdAt).fromNow()}
+            e-mail: {email}
           </Typography>
-          <Typography variant="body1">{title}</Typography>
-          <Typography variant="body1">{body}</Typography>
         </CardContent>
       </Card>
     );
   }
 }
 
-export default withStyles(styles)(Post);
+export default withStyles(styles)(User);

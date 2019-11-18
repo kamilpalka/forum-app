@@ -39,6 +39,31 @@ exports.signup = (req, res) => {
     });
 };
 
+// get user details
+
+exports.getUserDetails = (req, res) => {
+  db.collection("users")
+    .get()
+    .then(data => {
+      let users = [];
+      data.forEach(doc => {
+        users.push({
+          userId: doc.id,
+          first_name: doc.data().first_name,
+          last_name: doc.data().last_name,
+          email: doc.data().email,
+          address: doc.data().address,
+          phone: doc.data().phone
+        });
+      });
+      return res.json(users);
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: err.code });
+    });
+};
+
 // add user details
 // exports.addUserDetails = (req, res) => {
 //   let userDetails = reduceUserDetails(req.body);
