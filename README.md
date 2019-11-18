@@ -7,12 +7,16 @@ Technology Stack
 Front-end:
 
 -React
--Material-ui
+
+-Material-ui 
+
 -axios
 
 
 Back-end:
 
 -Node.js
+
 -Express.js
+
 -Firebase 
